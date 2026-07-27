@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love ❤️</title>
+    <style>
+        :root {
+            --card-bg: rgba(224, 200, 186, 0.92);
+            --primary-color: #e63946;
+            --text-color: #4a4a4a;
+            --accent-color: #f4a261;
+        }
+
+        body {
+            font-family: cursive;
+            
+            /* OPTION A: DIRECT WORKING ONLINE GALAXY GIF LINK */
+            background-image: url('https://64.media.tumblr.com/cd0a47a3946cd5e24dacba4e6d37f132/8c235c1c0f5748b1-09/s2048x3072/529828f98e3c226ab635599b0a63ac67e2917068.gif');
+            
+            /* OPTION B: IF USING LOCAL FILE IN THE SAME FOLDER */
+            /* background-image: url('C:\Users\Chlthu\Desktop\GFDAY\galaxy.gif'); */
+
+            /* OPTION C: IF USING FULL PC PATH (Notice forward slashes '/' instead of '\') */
+            /* background-image: url('file:///C:\Users\Chlthu\Desktop\GFDAY\galaxy.gif'); */
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-color: #0b0d1b; /* Fallback dark space color if GIF loads slowly */
+            
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            box-sizing: border-box;
+            backdrop-filter: blur(5px);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* Music Player Styling */
+        .music-player {
+            background: #fff0f3;
+            padding: 15px;
+            border-radius: 50px;
+            margin-bottom: 30px;
+            display: inline-block;
+        }
+
+        audio {
+            height: 35px;
+            outline: none;
+        }
+
+        /* Letter Styling */
+        .letter {
+            text-align: left;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            background: #fff0f3;
+            padding: 25px;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+
+        /* Photo Gallery Grid */
+        .gallery-title {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>To My Soulmate ❤️</h1>
+        <p class="subtitle">A small space I made just for you.</p>
+
+        <!-- MUSIC SECTION -->
+        <div class="music-player">
+            <audio controls autoplay loop>
+                <source src="C:\Users\Chlthu\Desktop\GFDAY\The 1975 - About You.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <!-- LETTER SECTION -->
+        <div class="letter">
+            <p>To my dearest Eain,</p>
+            <p>
+                I am writing this because words sometimes catch in my mind when I look at you, overwhelmed 
+                by how much you mean to me. Please keep this little note as token of my heart, a small reminder of a love
+                that belongs entirely to you.
+            </p>
+            <p>
+                I miss your gentle touch, your presence, your soft hands holding mine, the soft sound of your laughter, and
+                the world just makes sense whenever you are near.
+            </p>
+            <p>
+                You are my peace, my constant joy, and the brightest part of my life. No matter where we are or how long the
+                days feel before I can hold you again, please never forget how deeply, truly and completely you are loved.
+            </p>
+            <p>
+                You have my whole heart, today and for all the days to come. 
+            </p>
+            <p>
+                Every day with you feels like a gift. Thank you for being my favorite 
+                part of every day. Happy Girlfriend's Day!
+            </p>
+            <p>Yours forever,<br><strong>Clyder</strong></p>
+        </div>
+
+        <!-- PHOTO GALLERY SECTION -->
+        <h2 class="gallery-title">Our Favorite Moments</h2>
+        <div class="gallery">
+            <img src="C:\Users\Chlthu\Desktop\GFDAY\S__1515524_0.jpg" alt="Memory 1">
+            <img src="C:\Users\Chlthu\Desktop\GFDAY\S__1515532.jpg" alt="Memory 2">
+            <img src="C:\Users\Chlthu\Desktop\GFDAY\S__1515530.jpg" alt="Memory 3">
+            <img src="C:\Users\Chlthu\Desktop\GFDAY\S__1515526_0.jpg" alt="Memory 4">
+            <img src="C:\Users\Chlthu\Desktop\GFDAY\S__1515529_0.jpg" alt="Memory 5">
+            <img src="C:\Users\Chlthu\Desktop\GFDAY\S__1515533.jpg" alt="Memory 6">
+        </div>
+
+        <footer>Made with love just for you</footer>
+    </div>
+
+</body>
+</html>
