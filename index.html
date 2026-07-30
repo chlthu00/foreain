@@ -10,6 +10,8 @@
             --primary-color: #e63946;
             --text-color: #4a4a4a;
             --accent-color: #f4a261;
+            --envelope-color: #e76f51;
+            --envelope-flap: #d85739;
         }
 
         body {
@@ -89,6 +91,107 @@
             margin-bottom: 40px;
         }
 
+        /* ENVELOPE VIDEO WIDGET STYLING */
+        .envelope-section {
+            margin: 40px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .envelope-wrapper {
+            position: relative;
+            width: 280px;
+            height: 180px;
+            background-color: var(--envelope-color);
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+            transition: transform 0.3s ease;
+        }
+
+        .envelope-wrapper:hover {
+            transform: scale(1.03);
+        }
+
+        /* Envelope Top Flap */
+        .envelope-flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 140px solid transparent;
+            border-right: 140px solid transparent;
+            border-top: 100px solid var(--envelope-flap);
+            transform-origin: top;
+            transition: transform 0.5s ease 0.2s, z-index 0.2s;
+            z-index: 3;
+        }
+
+        /* Heart Seal */
+        .heart-seal {
+            position: absolute;
+            top: 35px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 28px;
+            z-index: 4;
+            transition: opacity 0.3s ease;
+            user-select: none;
+        }
+
+        /* Video Container Inside Envelope */
+        .video-box {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            width: 260px;
+            height: 160px;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            z-index: 2;
+            transition: transform 0.6s ease, width 0.6s ease, height 0.6s ease, left 0.6s ease, top 0.6s ease;
+        }
+
+        .video-box video, .video-box iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            object-fit: cover;
+        }
+
+        /* Envelope Opened State Styles */
+        .envelope-wrapper.open .envelope-flap {
+            transform: rotateX(180deg);
+            z-index: 1;
+        }
+
+        .envelope-wrapper.open .heart-seal {
+            opacity: 0;
+        }
+
+        /* Pop Out Video when opened */
+        .envelope-wrapper.open {
+            background-color: transparent;
+            box-shadow: none;
+            height: auto;
+            width: 100%;
+        }
+
+        .envelope-wrapper.open .video-box {
+            position: relative;
+            width: 100%;
+            max-width: 640px;
+            height: 360px;
+            left: 0;
+            transform: translateY(-10px);
+            z-index: 5;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
         /* Photo Gallery Grid */
         .gallery-title {
             color: var(--primary-color);
@@ -127,15 +230,13 @@
         <h1>To My Soulmate ❤️</h1>
         <p class="subtitle">A small space I made just for you.</p>
 
-        <!-- MUSIC SECTION -->
         <div class="music-player">
             <audio controls autoplay loop>
-                <source src="The 1975 - About You.mp3">
+                <source src="The 1975 - About You.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
         </div>
 
-        <!-- LETTER SECTION -->
         <div class="letter">
             <p>To my dearest Eain,</p>
             <p>
@@ -161,7 +262,22 @@
             <p>Yours forever,<br><strong>Clyder</strong></p>
         </div>
 
-        <!-- PHOTO GALLERY SECTION -->
+        <div class="envelope-section">
+            <p style="font-style: italic; margin-bottom: 15px; color: #555;">Click the envelope to open a video message! 💌</p>
+            
+            <div class="envelope-wrapper" id="envelope" onclick="openEnvelope()">
+                <div class="envelope-flap"></div>
+                <div class="heart-seal">❤️</div>
+                
+                <div class="video-box" id="videoBox">
+                    <video id="myVideo" controls preload="metadata">
+                        <source src="video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+
         <h2 class="gallery-title">Our Favorite Moments</h2>
         <div class="gallery">
             <img src="S__1515524_0.jpg">
@@ -174,6 +290,23 @@
 
         <footer>Made with love just for you</footer>
     </div>
+
+    <script>
+        function openEnvelope() {
+            const envelope = document.getElementById('envelope');
+            const video = document.getElementById('myVideo');
+            
+            if (!envelope.classList.contains('open')) {
+                envelope.classList.add('open');
+                // Plays video automatically after envelope opens
+                if (video) {
+                    setTimeout(() => { 
+                        video.play(); 
+                    }, 500);
+                }
+            }
+        }
+    </script>
 
 </body>
 </html>
